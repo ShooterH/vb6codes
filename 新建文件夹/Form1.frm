@@ -9,20 +9,28 @@ Begin VB.Form Form1
    ScaleHeight     =   3030
    ScaleWidth      =   4560
    StartUpPosition =   3  '窗口缺省
+   Begin VB.CommandButton Command4 
+      Caption         =   "Command4"
+      Height          =   495
+      Left            =   3000
+      TabIndex        =   4
+      Top             =   960
+      Width           =   735
+   End
    Begin VB.CommandButton Command3 
       Caption         =   "product"
       Height          =   375
-      Left            =   2520
+      Left            =   2160
       TabIndex        =   3
-      Top             =   2040
+      Top             =   960
       Width           =   615
    End
    Begin VB.CommandButton Command2 
       Caption         =   "sum"
       Height          =   495
-      Left            =   2520
+      Left            =   3000
       TabIndex        =   2
-      Top             =   1200
+      Top             =   240
       Width           =   735
    End
    Begin VB.TextBox Text1 
@@ -36,9 +44,9 @@ Begin VB.Form Form1
    Begin VB.CommandButton Command1 
       Caption         =   "find"
       Height          =   615
-      Left            =   2160
+      Left            =   2040
       TabIndex        =   0
-      Top             =   360
+      Top             =   120
       Width           =   735
    End
 End
@@ -47,14 +55,14 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Function sum(nend As Integer, step As Integer) As Integer
+Function sum(nend As Integer, step As Integer) As Integer '等差数列求和
     If nend - step <= 0 Then
         sum = 0
         Exit Function
     End If
     sum = nend + sum(nend - step, step)
 End Function
-Function product(nend As Integer, step As Integer) As Long
+Function product(nend As Integer, step As Integer) As Long '等比数列求和
     If nend - step <= 0 Then
         product = 1
         Exit Function
@@ -82,4 +90,16 @@ End Sub
 Private Sub Command3_Click()
 Form1.Cls
 Print product(Text1.Text, 1)
+End Sub
+
+Private Sub Command4_Click()
+'教材p54Q2
+Dim l As Double, t As Integer
+l = 0.0001
+Do
+    l = l * 2
+    n = n + 1
+Loop Until l > 8848
+Print n
+Print l
 End Sub
