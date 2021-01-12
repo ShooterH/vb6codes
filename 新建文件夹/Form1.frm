@@ -73,6 +73,7 @@ End Function
 Private Sub Command1_Click()
 Dim a, b, c As Integer
 Form1.Cls
+'999内水仙花数
 For a = 1 To 9
     For b = 0 To 9
         For c = 0 To 9
